@@ -31,7 +31,7 @@ def nonmaxsuppression(score_matrix, corner_coords, blocksize):
     interval = int((blocksize - 1) / 2)
 
     for columns, rows in corner_coords:
-        row, column = np.unravel_index(np.argmax(score_matrix[rows - interval: rows + interval + 1, columns - interval: columns + interval + 1]), (3, 3))
+        row, column = np.unravel_index(np.argmax(score_matrix[rows - interval: rows + interval + 1, columns - interval: columns + interval + 1]), (blocksize, blocksize))
         final_corner_coords.append((column + columns, row + rows))
 
     final_corner_coords = list(set(final_corner_coords))
