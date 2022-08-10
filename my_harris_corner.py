@@ -2,7 +2,21 @@ import cv2 as cv
 from matplotlib.pyplot import draw
 import numpy as np
 
+# docstring yazılacak
+
 def computeImageDerivative(img, ksize):
+    """
+    The function to calculate image derivatives by using Sobel operator
+  
+    Parameters:
+        img (2-D numpy array): The image whose image derivative is calculated
+        ksize (int): Parameter for Sobel operator, i.e, blocksize on which the Sobel operator calculate the image derivative
+
+    Returns:
+        gx (2-D numpy array): Image derivatives with respect to x axis
+        gy (2-D numpy array): Image derivatives with respect to y axis
+    """
+
     gx = cv.Sobel(img, cv.CV_32F, 1, 0, ksize)
     gy = cv.Sobel(img, cv.CV_32F, 0, 1, ksize)
     return gx, gy
