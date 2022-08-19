@@ -9,14 +9,14 @@ if __name__ == "__main__":
     colored_img2 = img.copy()
     gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 
-    score_matrix, corner_coords = MyHarrisCorner(gray, 5, 3, 0.04)
+    score_matrix, corner_coords = MyHarrisCorner(gray, 3, 3, 0.04)
 
     colored_img[score_matrix > 0.01 * score_matrix.max()]= [255, 0, 0]
     # drawCorners(colored_img, corner_coords)
 
     # opencv harris corner
     gray = np.float32(gray)
-    dst = cv.cornerHarris(gray, 5, 3, 0.04)
+    dst = cv.cornerHarris(gray, 3, 3, 0.04)
     # dst = cv.dilate(dst,None)
     colored_img2[dst>0.01*dst.max()]=[255, 0, 0]
 
